@@ -1,10 +1,11 @@
+import { getSession } from 'next-auth/react'
 import Center from '../components/Center'
 import Sidebar from '../components/Sidebar'
 
 export default function Home() {
   return (
-    <div className="overflow-hiddens h-screen bg-[#000000]">
-      <main className="flex">
+    <div className="h-screen overflow-hidden bg-[#000000]">
+      <main className="flex flex-grow">
         {/* sideba */}
         <Sidebar />
         {/* center */}
@@ -13,4 +14,14 @@ export default function Home() {
       <div>{/* Players */}</div>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context)
+
+  return {
+    props: {
+      session,
+    },
+  }
 }

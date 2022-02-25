@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "lib/time.js"  ],
   "exclude": [
     "node_modules"
   ]
